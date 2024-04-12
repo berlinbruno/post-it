@@ -104,7 +104,6 @@ export const feedQuery = `*[_type == "pin"] | order(_createdAt desc) {
       }
     },
         _id,
-        destination,
         postedBy->{
           _id,
           userName,
@@ -131,7 +130,6 @@ export const pinDetailQuery = (pinId) => {
           title, 
           about,
           category,
-          destination,
           postedBy->{
             _id,
             userName,
@@ -165,7 +163,6 @@ export const pinDetailMorePinQuery = (pin) => {
             }
           },
           _id,
-          destination,
           postedBy->{
             _id,
             userName,
@@ -191,7 +188,6 @@ export const userCreatedPinsQuery = (userId) => {
             }
           },
           _id,
-          destination,
           postedBy->{
             _id,
             userName,
@@ -216,7 +212,6 @@ export const userSavedPinsQuery = (userId) => {
             }
           },
           _id,
-          destination,
           postedBy->{
             _id,
             userName,

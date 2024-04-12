@@ -11,7 +11,6 @@ const CreatePin = ({user}) => {
   const [title, setTitle] = useState("");
   const [about, setAbout] = useState("");
   const [loading, setLoading] = useState(false);
-  const [destination, setDestination] = useState();
   const [fields, setFields] = useState();
   const [category, setCategory] = useState();
   const [imageAsset, setImageAsset] = useState();
@@ -50,12 +49,11 @@ const CreatePin = ({user}) => {
   };
 
   const savePin = () => {
-    if (title && about && destination && imageAsset?._id && category) {
+    if (title && about && imageAsset?._id && category) {
       const doc = {
         _type: "pin",
         title,
         about,
-        destination,
         image: {
           _type: "image",
           asset: {
@@ -95,7 +93,6 @@ const CreatePin = ({user}) => {
           {loading && <Spinner />}
           {wrongImageType && <p>It&apos;s wrong file type.</p>}
           {!imageAsset ? (
-            // eslint-disable-next-line jsx-a11y/label-has-associated-control
             <label>
               <div className="flex flex-col items-center justify-center h-full">
                 <div className="flex flex-col justify-center items-center">
@@ -161,14 +158,6 @@ const CreatePin = ({user}) => {
           placeholder="Tell everyone what your Pin is about"
           className="outline-none text-base sm:text-lg border-b-2 border-gray-200 p-2"
         />
-        <input
-          type="url"
-          vlaue={destination}
-          onChange={(e) => setDestination(e.target.value)}
-          placeholder="Add a destination link"
-          className="outline-none text-base sm:text-lg border-b-2 border-gray-200 p-2"
-        />
-
         <div className="flex flex-col">
           <div>
             <p className="mb-2 font-semibold text:lg sm:text-xl">

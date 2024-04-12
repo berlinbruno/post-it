@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import { MdDownloadForOffline } from "react-icons/md";
 import { AiTwotoneDelete } from "react-icons/ai";
-import { BsFillArrowUpRightCircleFill } from "react-icons/bs";
 import { client, urlFor } from "../client";
 import { fetchUser } from "../utils/fetchUser";
 
@@ -12,7 +11,7 @@ const Pin = ({ pin }) => {
   const [savingPost, setSavingPost] = useState(false);
   const navigate = useNavigate();
 
-  const { postedBy, image, _id, destination } = pin;
+  const { postedBy, image, _id } = pin;
   const userInfo = fetchUser();
 
   let alreadySaved = !!pin?.save?.filter(
@@ -103,19 +102,6 @@ const Pin = ({ pin }) => {
               )}
             </div>
             <div className="flex justify-between items-center gap-2 w-full">
-              {destination && (
-                <a
-                  href={destination}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="bg-white flex items-center gap-2 text-black font-bold p-2 pl-4 rounded-full opacity-70 hover:100 hover:shadow-md outline-none"
-                >
-                  <BsFillArrowUpRightCircleFill />
-                  {destination.length > 15
-                    ? `${destination.slice(0, 15)}...`
-                    : destination}
-                </a>
-              )}
               {postedBy?._id === userInfo?.sub && (
                 <button
                   type="button"
