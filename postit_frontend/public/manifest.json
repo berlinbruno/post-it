@@ -1,6 +1,7 @@
 {
-    "short_name": "React App",
-    "name": "Create React App Sample",
+    "short_name": "PostIt",
+    "name": "PostIt",
+    "description": "PostIt - Your image sharing social media platform ",
     "icons": [
       {
         "src": "favicon.ico",
