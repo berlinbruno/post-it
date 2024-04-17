@@ -18,7 +18,6 @@ const Pin = ({ pin }) => {
     (item) => item?.postedBy?._id === userInfo?.sub
   ).length;
   
-  console.log(pin.save);
 
   
   const deletePin = (id) => {

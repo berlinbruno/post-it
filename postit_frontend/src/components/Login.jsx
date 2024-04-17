@@ -10,7 +10,6 @@ import { client } from "../client";
 const Login = () => {
   const navigate = useNavigate();
   const responseGoogle = (response) => {
-    console.log(jwtDecode(response.credential));
     localStorage.setItem(
       "user",
       JSON.stringify(jwtDecode(response.credential))
