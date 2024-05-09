@@ -1,4 +1,4 @@
-# Interactive Image Sharing Web App
+# Interactive Image Sharing Web App - PostIt
 
 This project is an interactive web application developed using React.js, integrated with Sanity CMS and Google OAuth. It allows users to securely log in with their Google accounts, share and download images, and engage with the community through comments.
 
@@ -26,3 +26,7 @@ This project is an interactive web application developed using React.js, integra
 <h2>🚀 Demo</h2>
 
 [https://postitmedia.netlify.app/](https://postitmedia.netlify.app/)
+
+## License
+
+Feel free to use this project as you wish. No restrictions apply.
