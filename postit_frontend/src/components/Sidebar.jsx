@@ -1,10 +1,8 @@
-import React from "react";
-import { NavLink, Link } from "react-router-dom";
 import { RiHomeFill } from "react-icons/ri";
-import { IoIosArrowForward } from "react-icons/io";
+import { Link, NavLink } from "react-router-dom";
 
-import logo from "../assets/logo.png";
-import {categories} from '../utils/data'
+import { categories } from "../utils/data";
+import logo from '/icons/logo-full-light.png';
 
 const isNotActiveStyle =
   "flex items-center px-5 gap-3 text-grey-500 hover:text-black transition-all duration-200 ease-in-out capitalize";
@@ -49,7 +47,11 @@ const Sidebar = ({ closeToggle, user }) => {
               onClick={handleCloseSidebar}
               key={category.name}
             >
-              <img src={category.image} className="w-8 h-8 rounded-full shadow-sm" alt="category" />
+              <img
+                src={category.image}
+                className="w-8 h-8 rounded-full shadow-sm"
+                alt="category"
+              />
               {category.name}
             </NavLink>
           ))}

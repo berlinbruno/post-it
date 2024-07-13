@@ -1,14 +1,14 @@
-import React, { useState, useRef, useEffect } from "react";
-import { HiMenu } from "react-icons/hi";
+import { useEffect, useRef, useState } from "react";
 import { AiFillCloseCircle } from "react-icons/ai";
+import { HiMenu } from "react-icons/hi";
 import { Link, Route, Routes } from "react-router-dom";
 
-import { Sidebar, UserProfile } from "../components";
-import { client } from "../client";
 import logo from "../assets/logo.png";
-import Pins from "./Pins";
+import { client } from "../client";
+import { Sidebar, UserProfile } from "../components";
 import { userQuery } from "../utils/data";
 import { fetchUser } from "../utils/fetchUser";
+import Pins from "./Pins";
 
 const Home = () => {
   const [toggleSidebar, setToggleSidebar] = useState(false);
@@ -23,7 +23,7 @@ const Home = () => {
     client.fetch(query).then((data) => {
       setUser(data[0]);
     });
-  }, []);
+  }, [userInfo?.sub]);
 
   useEffect(() => {
     scrollRef.current.scrollTo(0, 0);
