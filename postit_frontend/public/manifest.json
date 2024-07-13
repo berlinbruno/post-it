@@ -6,20 +6,6 @@
       "url": "/newEmail?to=%s"
     }
   ],
-  "shortcuts": [
-    {
-      "name": "Start Live Session",
-      "short_name": "Start Live",
-      "description": "Jump direction into starting or joining a live session",
-      "url": "/?startLive",
-      "icons": [
-        {
-          "src": "https://pwabuilder.com/assets/icons/icon_192.png",
-          "sizes": "192x192"
-        }
-      ]
-    }
-  ],
   "screenshots": [
     {
       "src": "/screenshots/screenshot-1.png",
@@ -425,8 +411,8 @@
       "purpose": "monochrome"
     }
   ],
-  "start_url": ".",
-  "id": "/",
+  "start_url": "https://postitmedia.netlify.app",
+  "id": "https://postitmedia.netlify.app",
   "display": "standalone",
   "theme_color": "#EF4444",
   "background_color": "#EF4444",
