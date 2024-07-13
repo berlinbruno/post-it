@@ -1,18 +1,20 @@
-import React, { useEffect } from "react";
-import { Routes, Route, useNavigate } from "react-router-dom";
 import { GoogleOAuthProvider } from "@react-oauth/google";
+import { useEffect } from "react";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import Login from "./components/Login";
 import Home from "./pages/Home";
 
 function App() {
-
   const navigate = useNavigate();
 
   useEffect(() => {
-    const User = localStorage.getItem('user') !== 'undefined' ? JSON.parse(localStorage.getItem('user')) : localStorage.clear();
+    const User =
+      localStorage.getItem("user") !== "undefined"
+        ? JSON.parse(localStorage.getItem("user"))
+        : localStorage.clear();
 
-    if (!User) navigate('/login');
-  }, []);
+    if (!User) navigate("/login");
+  }, [navigate]);
 
   return (
     <GoogleOAuthProvider
