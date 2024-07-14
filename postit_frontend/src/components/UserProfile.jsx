@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { AiOutlineLogout } from "react-icons/ai";
-import { useParams, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
+import { LogOutIcon } from "lucide-react";
+import { client } from "../client";
 import {
   userCreatedPinsQuery,
   userQuery,
   userSavedPinsQuery,
 } from "../utils/data";
-import { client } from "../client";
 import MasonryLayout from "./MasonryLayout";
 import Spinner from "./Spinner";
 
@@ -67,7 +67,7 @@ const UserProfile = () => {
           <div className="flex flex-col justify-center items-center">
             <img
               className=" w-full h-370 2xl:h-510 shadow-lg object-cover"
-              src="https://source.unsplash.com/1600x900/?nature,photography,technology"
+              src="https://doodleipsum.com/700x394/abstract?i=e2dedc7bc9f1a630e177355aa7b1a6c9"
               alt="user-pic"
             />
             <img
@@ -86,7 +86,7 @@ const UserProfile = () => {
                 className=" bg-white p-2 rounded-full cursor-pointer outline-none shadow-md"
                 onClick={logout}
               >
-                <AiOutlineLogout color="red" fontSize={21} />
+                <LogOutIcon color="red" fontSize={21} />
               </button>
             )}
           </div>

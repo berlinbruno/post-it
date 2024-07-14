@@ -1,8 +1,7 @@
-import { RiHomeFill } from "react-icons/ri";
+import { Home } from "lucide-react";
 import { Link, NavLink } from "react-router-dom";
-
 import { categories } from "../utils/data";
-import logo from '/icons/logo-full-light.png';
+import logo from "/icons/logo-full-light.png";
 
 const isNotActiveStyle =
   "flex items-center px-5 gap-3 text-grey-500 hover:text-black transition-all duration-200 ease-in-out capitalize";
@@ -32,7 +31,7 @@ const Sidebar = ({ closeToggle, user }) => {
             }
             onClick={handleCloseSidebar}
           >
-            <RiHomeFill />
+            <Home />
             Home
           </NavLink>
           <h3 className=" mt-2 px-5 text-base 2xl:text-xl">
@@ -59,7 +58,7 @@ const Sidebar = ({ closeToggle, user }) => {
       </div>
       {user && (
         <Link
-          to={`user-profile/${user._id}`}
+          to={`/user-profile/${user._id}`}
           className="flex my-5 mx-3 mb-3 p-2 gap-2 items-center bg-white rounded-lg shadow-lg"
           onClick={handleCloseSidebar}
         >

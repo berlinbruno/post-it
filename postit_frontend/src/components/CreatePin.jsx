@@ -1,11 +1,10 @@
-import React, { useState } from "react";
-import { AiOutlineCloudUpload } from "react-icons/ai";
-import { MdDelete } from "react-icons/md";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import { Trash2Icon, UploadCloudIcon } from "lucide-react";
 import { client } from "../client";
-import Spinner from "./Spinner";
 import { categories } from "../utils/data";
+import Spinner from "./Spinner";
 
 const CreatePin = ({user}) => {
   const [title, setTitle] = useState("");
@@ -97,7 +96,7 @@ const CreatePin = ({user}) => {
               <div className="flex flex-col items-center justify-center h-full">
                 <div className="flex flex-col justify-center items-center">
                   <p className="font-bold text-2xl">
-                    <AiOutlineCloudUpload />
+                    <UploadCloudIcon />
                   </p>
                   <p className="text-lg">Click to upload</p>
                 </div>
@@ -126,7 +125,7 @@ const CreatePin = ({user}) => {
                 className="absolute bottom-3 right-3 p-3 rounded-full bg-white text-xl cursor-pointer outline-none hover:shadow-md transition-all duration-500 ease-in-out"
                 onClick={() => setImageAsset(null)}
               >
-                <MdDelete />
+                <Trash2Icon />
               </button>
             </div>
           )}

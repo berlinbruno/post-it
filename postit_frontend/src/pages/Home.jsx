@@ -1,9 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import { AiFillCloseCircle } from "react-icons/ai";
-import { HiMenu } from "react-icons/hi";
 import { Link, Route, Routes } from "react-router-dom";
 
-import logo from "../assets/logo.png";
+import { MenuIcon, XIcon } from "lucide-react";
+import logo from "../assets/logo-full-light.png";
 import { client } from "../client";
 import { Sidebar, UserProfile } from "../components";
 import { userQuery } from "../utils/data";
@@ -36,7 +35,7 @@ const Home = () => {
       </div>
       <div className="flex md:hidden flex-row">
         <div className="p-2 w-full flex flex-row justify-between items-center shadow-md">
-          <HiMenu
+          <MenuIcon
             fontSize={40}
             className=" cursor-pointer"
             onClick={() => setToggleSidebar(true)}
@@ -45,13 +44,13 @@ const Home = () => {
             <img src={logo} alt="logo" className="w-28" />
           </Link>
           <Link to={`user-profile/$(user?._id)`}>
-            <img src={user?.image} alt="logo" className="w-28" />
+            <img src={user?.image} alt="logo" className="w-12 rounded-full" />
           </Link>
         </div>
         {toggleSidebar && (
           <div className="fixed w-4/5 bg-white h-screen overflow-y-auto shadow-md z-10 animate-slide-in">
             <div className="absolute w-full flex justify-end items-center p-2">
-              <AiFillCloseCircle
+              <XIcon
                 fontSize={30}
                 className=" cursor-pointer"
                 onClick={() => setToggleSidebar(false)}

@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { MdDownloadForOffline } from "react-icons/md";
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { NIL, v4 as uuidv4 } from "uuid";
+import { v4 as uuidv4 } from "uuid";
 
+import { DownloadIcon } from "lucide-react";
 import { client, urlFor } from "../client";
-import MasonryLayout from "./MasonryLayout";
 import { pinDetailMorePinQuery, pinDetailQuery } from "../utils/data";
+import MasonryLayout from "./MasonryLayout";
 import Spinner from "./Spinner";
 
 const PinDetail = ({ user }) => {
@@ -84,7 +84,7 @@ const PinDetail = ({ user }) => {
                   download
                   className="bg-secondaryColor p-2 text-xl rounded-full flex items-center justify-center text-dark opacity-75 hover:opacity-100"
                 >
-                  <MdDownloadForOffline />
+                  <DownloadIcon />
                 </a>
               </div>
             </div>

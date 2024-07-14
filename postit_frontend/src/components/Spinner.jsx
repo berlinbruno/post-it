@@ -1,16 +1,16 @@
-import React from "react";
-import {Circles} from "react-loader-spinner";
+import { Audio } from "react-loader-spinner";
 
 const Spinner = ({ message }) => {
   return (
-    <div className="flex flex-col justify-center items-center">
-      <Circles
-        color="#00BFFF"
-        height={50}
-        width={200}
-        className="m-5"
+    <div className="flex flex-col justify-center items-center h-screen">
+      <Audio
+        height="80"
+        width="80"
+        radius="9"
+        color="red"
+        ariaLabel="loading"
       />
-      <p className="text-lg text-center px-2">{message}</p>
+      <p className="text-xl text-center px-2">{message}</p>
     </div>
   );
 };

@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import { DownloadIcon, Trash2Icon } from "lucide-react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
-import { MdDownloadForOffline } from "react-icons/md";
-import { AiTwotoneDelete } from "react-icons/ai";
 import { client, urlFor } from "../client";
 import { fetchUser } from "../utils/fetchUser";
 
@@ -17,9 +16,7 @@ const Pin = ({ pin }) => {
   let alreadySaved = !!pin?.save?.filter(
     (item) => item?.postedBy?._id === userInfo?.sub
   ).length;
-  
 
-  
   const deletePin = (id) => {
     client.delete(id).then(() => {
       window.location.reload();
@@ -27,7 +24,6 @@ const Pin = ({ pin }) => {
   };
 
   const savePin = (id) => {
-    
     if (!alreadySaved) {
       setSavingPost(true);
       client
@@ -48,16 +44,16 @@ const Pin = ({ pin }) => {
           window.location.reload();
           setSavingPost(false);
         });
-    } 
+    }
   };
-  
+
   return (
     <div className="m-2">
       <div
         onMouseEnter={() => setPostHovered(true)}
         onMouseLeave={() => setPostHovered(false)}
         onClick={() => navigate(`/pin-detail/${_id}`)}
-        className="relative cursor-zoom-in w-auto hover:shadow-lg rounded-lg overflow-hidden transition-all duration-500 ease-in-out"
+        className="relative cursor-pointer w-auto hover:shadow-lg rounded-lg overflow-hidden transition-all duration-500 ease-in-out"
       >
         <img
           src={urlFor(image).width(250).url()}
@@ -77,7 +73,7 @@ const Pin = ({ pin }) => {
                   onClick={(e) => e.stopPropagation()}
                   className="bg-white w-9 h-9 rounded-full flex items-center justify-center text-dark text-xl opacity-75 hover:opacity-100 hover:shadow-none outline-none"
                 >
-                  <MdDownloadForOffline />
+                  <DownloadIcon />
                 </a>
               </div>
               {alreadySaved ? (
@@ -96,7 +92,7 @@ const Pin = ({ pin }) => {
                     savePin(_id);
                   }}
                 >
-                  {savingPost ? 'Saving' : 'Save'}
+                  {savingPost ? "Saving" : "Save"}
                 </button>
               )}
             </div>
@@ -110,7 +106,7 @@ const Pin = ({ pin }) => {
                     deletePin(_id);
                   }}
                 >
-                  <AiTwotoneDelete />
+                  <Trash2Icon />
                 </button>
               )}
             </div>
