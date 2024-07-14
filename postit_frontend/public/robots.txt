@@ -1,5 +1,6 @@
 # Allow all web crawlers to access the public area
 User-agent: *
+Disallow: /login/
 Allow: /
 
 # Specify the location of the sitemap
