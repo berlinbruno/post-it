@@ -29,21 +29,6 @@ export default defineConfig({
         scope: "/",
         display_override: ["window-controls-overlay"],
         protocol_handlers: [{ protocol: "mailto", url: "/newEmail?to=%s" }],
-        shortcuts: [
-          {
-            name: "Create a Post",
-            short_name: "Post",
-            description:
-              "Post an image",
-            url: "/create-pin/",
-            icons: [
-              {
-                src: "../postit_frontend/src/assets/send.png",
-                sizes: "96x96",
-              },
-            ],
-          },
-        ],
         screenshots: [
           {
             src: "/screenshots/screenshot-1.png",
