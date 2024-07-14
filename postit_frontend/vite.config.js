@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [
     react(),
     VitePWA({
-      registerType: "prompt",
+      registerType: "autoUpdate",
       devOptions: {
         enabled: true,
       },
@@ -20,8 +20,8 @@ export default defineConfig({
       manifest: {
         name: "PostIt",
         short_name: "PostIt",
-        start_url: "https://postitmedia.netlify.app",
-        id: "https://postitmedia.netlify.app",
+        start_url: "/",
+        id: "/",
         display: "standalone",
         background_color: "#262626",
         theme_color: "#262626",
@@ -29,6 +29,20 @@ export default defineConfig({
         scope: "/",
         display_override: ["window-controls-overlay"],
         protocol_handlers: [{ protocol: "mailto", url: "/newEmail?to=%s" }],
+        shortcuts: [
+          {
+            name: "Create a Post",
+            short_name: "Post",
+            description: "Post an image",
+            url: "/create-pin/",
+            icons: [
+              {
+                src: "/send.png",
+                sizes: "96x96",
+              },
+            ],
+          },
+        ],
         screenshots: [
           {
             src: "/screenshots/screenshot-1.png",

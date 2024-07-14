@@ -66,7 +66,7 @@ const UserProfile = () => {
         <div className="relative flex flex-col mb-7">
           <div className="flex flex-col justify-center items-center">
             <img
-              className=" w-full h-370 2xl:h-510 shadow-lg object-cover"
+              className=" w-full h-[200px] 2xl:h-[240px] shadow-lg object-cover"
               src="https://doodleipsum.com/700x394/abstract?i=e2dedc7bc9f1a630e177355aa7b1a6c9"
               alt="user-pic"
             />
