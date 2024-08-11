@@ -14,16 +14,8 @@ This project is an interactive web application developed using React.js, integra
 - **React.js:** Frontend framework for building interactive user interfaces.
 - **Sanity CMS:** Headless CMS for content management and integration.
 - **Google OAuth:** Authentication mechanism for secure user logins.
-  
-## How to Run
 
-1. **Clone Repository:** Clone the project repository to your local machine.
-2. **Install Dependencies:** Run `npm install` to install project dependencies.
-3. **Set Up Google OAuth:** Obtain client ID and client secret from Google API Console and update configuration.
-4. **Start the Development Server:** Run `npm start` to start the development server.
-5. **Access the App:** Open your browser and navigate to `http://localhost:3000` to access the web app.
-
-<h2>🚀 Demo</h2>
+##Demo
 
 [https://postitmedia.netlify.app/](https://postitmedia.netlify.app/)
 
