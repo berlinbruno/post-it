@@ -1,7 +1,7 @@
 import { Home } from "lucide-react";
 import { Link, NavLink } from "react-router-dom";
+import logo from "../assets/logo-full-light.png";
 import { categories } from "../utils/data";
-import logo from "/icons/logo-full-light.png";
 
 const isNotActiveStyle =
   "flex items-center px-5 gap-3 text-grey-500 hover:text-black transition-all duration-200 ease-in-out capitalize";
