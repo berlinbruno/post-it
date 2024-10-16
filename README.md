@@ -17,7 +17,7 @@ This project is an interactive web application developed using React.js, integra
 
 ##Demo
 
-[https://postitmedia.netlify.app/](https://postitmedia.netlify.app/)
+[https://postit.berlinbruno.dev/](https://postit.berlinbruno.dev/)
 
 ## License
 
