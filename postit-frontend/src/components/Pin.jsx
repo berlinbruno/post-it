@@ -13,9 +13,9 @@ const Pin = ({ pin }) => {
   const { postedBy, image, _id } = pin;
   const userInfo = fetchUser();
 
-  let alreadySaved = !!pin?.save?.filter(
+  const alreadySaved = pin?.save?.some(
     (item) => item?.postedBy?._id === userInfo?.sub
-  ).length;
+  );
 
   const deletePin = (id) => {
     client.delete(id).then(() => {
@@ -24,7 +24,7 @@ const Pin = ({ pin }) => {
   };
 
   const savePin = (id) => {
-    if (!alreadySaved) {
+    if (!alreadySaved && !savingPost) {
       setSavingPost(true);
       client
         .patch(id)
@@ -48,51 +48,56 @@ const Pin = ({ pin }) => {
   };
 
   return (
-    <div className="m-2">
+    <div className="m-2 cursor-pointer bg-white hover:z-50 rounded-lg shadow hover:shadow-xl transition-shadow duration-300 ease-in-out">
       <div
         onMouseEnter={() => setPostHovered(true)}
         onMouseLeave={() => setPostHovered(false)}
         onClick={() => navigate(`/pin-detail/${_id}`)}
-        className="relative cursor-pointer w-auto hover:shadow-lg rounded-lg overflow-hidden transition-all duration-500 ease-in-out"
+        className="relative w-auto rounded-lg overflow-hidden"
       >
         <img
-          src={urlFor(image).width(250).url()}
-          alt="user-post"
-          className=" rounded-lg w-full"
+          src={urlFor(image).width(300).url()}
+          alt={`Post by ${postedBy?.userName}`}
+          className="rounded-lg w-full"
         />
         {postHovered && (
-          <div
-            className="absolute top-0 w-full h-full flex flex-col justify-between p-1 pr-2 pt-2 pb-2 z-50"
-            style={{ height: "100%" }}
-          >
+          <div className="absolute top-0 w-full h-full flex flex-col justify-between p-4 bg-black bg-opacity-20 z-50 ease-in-out transition-opacity duration-200">
             <div className="flex items-center justify-between">
               <div className="flex gap-2">
                 <a
                   href={`${image?.asset?.url}?dl=`}
                   download
                   onClick={(e) => e.stopPropagation()}
-                  className="bg-white w-9 h-9 rounded-full flex items-center justify-center text-dark text-xl opacity-75 hover:opacity-100 hover:shadow-none outline-none"
+                  className="bg-gray-100 w-10 h-10 rounded-full flex items-center justify-center text-gray-800 text-xl opacity-90 hover:opacity-100 transition-opacity duration-200"
+                  aria-label="Download Image"
                 >
-                  <DownloadIcon />
+                  <DownloadIcon className="transition-transform duration-200 transform hover:scale-110" />
                 </a>
               </div>
               {alreadySaved ? (
                 <button
                   type="button"
-                  className="bg-red-500 opacity-70 hover:opacity-100 text-white font-bold px-5 py-1 rounded-3xl hover:shadow-md outline-none"
+                  className="bg-green-500 text-white font-semibold px-4 py-2 rounded-full shadow-md transition-shadow duration-200"
+                  aria-disabled="true"
                 >
                   {pin?.save?.length} Saved
                 </button>
               ) : (
                 <button
                   type="button"
-                  className="bg-red-500 opacity-70 hover:opacity-100 text-white font-bold px-5 py-1 rounded-3xl hover:shadow-md outline-none"
+                  className="bg-red-500 text-white font-semibold px-4 py-2 rounded-full shadow-md transition-shadow duration-200"
                   onClick={(e) => {
                     e.stopPropagation();
                     savePin(_id);
                   }}
+                  aria-label="Save Pin"
+                  disabled={savingPost}
                 >
-                  {savingPost ? "Saving" : "Save"}
+                  {savingPost ? (
+                    <span className="animate-spin">🌀</span>
+                  ) : (
+                    "Save"
+                  )}
                 </button>
               )}
             </div>
@@ -100,13 +105,14 @@ const Pin = ({ pin }) => {
               {postedBy?._id === userInfo?.sub && (
                 <button
                   type="button"
-                  className="bg-white p-2 opacity-70 hover:opacity-100 text-dark font-bold  rounded-3xl hover:shadow-md outline-none"
+                  className="bg-white p-2 text-gray-800 font-semibold rounded-full shadow-md transition-shadow duration-200"
                   onClick={(e) => {
                     e.stopPropagation();
                     deletePin(_id);
                   }}
+                  aria-label="Delete Pin"
                 >
-                  <Trash2Icon />
+                  <Trash2Icon className="transition-transform duration-200 transform hover:scale-110" />
                 </button>
               )}
             </div>
@@ -115,14 +121,15 @@ const Pin = ({ pin }) => {
       </div>
       <Link
         to={`user-profile/${postedBy?._id}`}
-        className="flex gap-2 mt-2 items-center"
+        className="flex gap-2 mt-2 items-center p-2"
       >
         <img
           className="w-8 h-8 rounded-full object-cover"
           src={postedBy?.image}
-          alt="user-profile"
+          alt={`Profile of ${postedBy?.userName}`}
         />
-        <p className=" font-semibold capitalize">{postedBy?.userName}</p>
+        <p className="font-extralight text-gray-600 text-md capitalize">{postedBy?.userName}</p>
+
       </Link>
     </div>
   );

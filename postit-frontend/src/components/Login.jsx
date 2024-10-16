@@ -1,5 +1,6 @@
 import { GoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
+import { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { useNavigate } from "react-router-dom";
 import logo from "../assets/logo-full-light.png";
@@ -8,21 +9,32 @@ import { client } from "../client";
 
 const Login = () => {
   const navigate = useNavigate();
-  const responseGoogle = (response) => {
-    localStorage.setItem(
-      "user",
-      JSON.stringify(jwtDecode(response.credential))
-    );
-    const { name, sub, picture } = jwtDecode(response.credential);
-    const doc = {
-      _id: sub,
-      _type: "user",
-      userName: name,
-      image: picture,
-    };
-    client.createIfNotExists(doc).then(() => {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  const responseGoogle = async (response) => {
+    setLoading(true);
+    setError(null); // Reset error state
+    try {
+      const userData = jwtDecode(response.credential);
+      localStorage.setItem("user", JSON.stringify(userData));
+
+      const { name, sub, picture } = userData;
+      const doc = {
+        _id: sub,
+        _type: "user",
+        userName: name,
+        image: picture,
+      };
+
+      await client.createIfNotExists(doc);
       navigate("/", { replace: true });
-    });
+    } catch (err) {
+      setError("Failed to log in. Please try again.");
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -37,21 +49,22 @@ const Login = () => {
           autoPlay
           className="w-full h-full object-cover"
         />
-
-        <div className="absolute flex flex-col justify-center items-center top-0 right-0 left-0 bottom-0 bg-blackOverlay">
-          <div className=" bg-slate-200 bg-opacity-30 mb-5 rounded-md">
+        <div className="absolute flex flex-col justify-center items-center top-0 right-0 left-0 bottom-0 bg-black bg-opacity-50">
+          <div className="bg-slate-200 bg-opacity-30 mb-5 rounded-md p-3">
             <img src={logo} width="130px" alt="logo" />
           </div>
-          <div className=" shadow-2xl">
+          <div className="shadow-2xl">
             <GoogleLogin
               render={(renderProps) => (
                 <button
                   type="button"
-                  className="bg-mainColor flex justify-center items-center p-3 rounded-lg cursor-pointer outline-none"
+                  className={`bg-mainColor flex justify-center items-center p-3 rounded-lg cursor-pointer outline-none ${loading ? "opacity-50 cursor-not-allowed" : ""}`}
                   onClick={renderProps.onClick}
-                  disabled={renderProps.disabled}
+                  disabled={renderProps.disabled || loading}
+                  aria-label="Sign in with Google"
                 >
-                  <FcGoogle className="mr-4" /> Sign in with google
+                  <FcGoogle className="mr-4" />
+                  {loading ? "Signing in..." : "Sign in with Google"}
                 </button>
               )}
               onSuccess={responseGoogle}
@@ -59,6 +72,7 @@ const Login = () => {
               cookiePolicy="single_host_origin"
             />
           </div>
+          {error && <p className="text-red-500 mt-2">{error}</p>}
         </div>
       </div>
     </div>

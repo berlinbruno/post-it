@@ -5,7 +5,7 @@ import { schemaTypes } from './schemas'
 
 export default defineConfig({
   name: 'default',
-  title: 'flexu',
+  title: 'Post It',
 
   projectId: '7x97x9yk',
   dataset: 'production',

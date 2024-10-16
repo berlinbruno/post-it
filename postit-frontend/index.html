@@ -3,26 +3,41 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
-  <!-- index.html -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO: Favicon and Apple Touch Icons -->
   <link rel="icon" type="image/png" href="/favicon-48x48.png" sizes="48x48" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="shortcut icon" href="/favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <meta name="apple-mobile-web-app-title" content="Post It" />
 
-
-  <meta name="theme-color" content="#262626" />
+  <!-- SEO: Meta Tags -->
   <meta name="description" content="PostIt - Your image sharing social media platform" />
-  <link rel="manifest" href="/manifest.json">
+  <meta property="og:title" content="PostIt" />
+  <meta property="og:description" content="PostIt - Your image sharing social media platform" />
+  <meta property="og:image" content="/og-image.png" />
+  <meta property="og:url" content="https://yourdomain.com" />
+  <link rel="canonical" href="https://yourdomain.com" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Outfit&display=swap" rel="stylesheet">
+  <!-- Web App Manifest and Theme Color -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#262626" />
+
+  <!-- Preconnect and Preload Fonts for Performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit&display=swap" rel="stylesheet" />
+
+  <!-- Document Title -->
   <title>PostIt</title>
 </head>
 
 <body>
-  <div id="root"></div>
-  <script type="module" src="/src/main.jsx"></script>
+  <div id="root" role="main"></div>
+
+  <!-- Load the main script -->
+  <script type="module" src="/src/main.jsx" defer></script>
 </body>
 
 </html>
