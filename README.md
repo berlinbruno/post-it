@@ -15,7 +15,7 @@ This project is an interactive web application developed using React.js, integra
 - **Sanity CMS:** Headless CMS for content management and integration.
 - **Google OAuth:** Authentication mechanism for secure user logins.
 
-##Demo
+## Demo
 
 [https://postit.berlinbruno.dev/](https://postit.berlinbruno.dev/)
 
