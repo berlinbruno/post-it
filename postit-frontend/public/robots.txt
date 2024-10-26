@@ -4,4 +4,4 @@ Disallow: /login/
 Allow: /
 
 # Specify the location of the sitemap
-Sitemap: https://postitmedia.netlify.app/sitemap.xml
+Sitemap: https://postit.berlinbruno.dev/sitemap.xml

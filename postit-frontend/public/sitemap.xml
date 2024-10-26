@@ -3,7 +3,7 @@
 
     <!-- Homepage -->
     <url>
-        <loc>https://postitmedia.netlify.app/</loc>
+        <loc>https://postit.berlinbruno.dev</loc>
         <lastmod>2024-07-14</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
@@ -11,7 +11,7 @@
 
     <!-- Category Page -->
     <url>
-        <loc>https://postitmedia.netlify.app/category/</loc>
+        <loc>https://postit.berlinbruno.dev/category/</loc>
         <lastmod>2024-07-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
@@ -19,7 +19,7 @@
 
     <!-- User Profile Page -->
     <url>
-        <loc>https://postitmedia.netlify.app/user-profile</loc>
+        <loc>https://postit.berlinbruno.dev/user-profile</loc>
         <lastmod>2024-07-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
@@ -27,7 +27,7 @@
 
     <!-- Create Pin Page -->
     <url>
-        <loc>https://postitmedia.netlify.app/create-pin</loc>
+        <loc>https://postit.berlinbruno.dev/create-pin</loc>
         <lastmod>2024-07-14</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.5</priority>
@@ -35,7 +35,7 @@
 
     <!-- Pin Details Page -->
     <url>
-        <loc>https://postitmedia.netlify.app/pin-details</loc>
+        <loc>https://postit.berlinbruno.dev/pin-details</loc>
         <lastmod>2024-07-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
