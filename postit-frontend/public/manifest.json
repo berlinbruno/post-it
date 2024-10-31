@@ -47,12 +47,6 @@
   "description": "PostIt - Your image sharing social media platform",
   "icons": [
     {
-      "src": "/favicon/manifest-144x144.png",
-      "sizes": "144x144",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
       "src": "/favicon/manifest-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
@@ -62,7 +56,7 @@
       "src": "/favicon/manifest-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "maskable"
+      "purpose": "any"
     }
   ],
   "orientation": "portrait",
