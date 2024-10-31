@@ -1,6 +1,6 @@
 {
-  "name": "PostIt",
-  "short_name": "PostIt",
+  "name": "Post It",
+  "short_name": "Post It",
   "start_url": "/",
   "id": "/",
   "display": "standalone",
