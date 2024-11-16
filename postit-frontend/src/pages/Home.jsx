@@ -48,15 +48,20 @@ const Home = () => {
           </Link>
         </div>
         {toggleSidebar && (
-          <div className="fixed w-4/5 bg-white h-screen overflow-y-auto shadow-md z-10 animate-slide-in">
-            <div className="absolute w-full flex justify-end items-center p-2">
-              <XIcon
-                fontSize={30}
-                className=" cursor-pointer"
-                onClick={() => setToggleSidebar(false)}
-              />
+          <div className="fixed w-full bg-transparent h-screen overflow-y-auto shadow-md z-10 animate-slide-in flex">
+            <div className=" w-4/5 relative h-screen overflow-y-auto">
+              <div className="absolute w-full flex justify-end items-center p-2">
+                <XIcon
+                  fontSize={30}
+                  className=" cursor-pointer"
+                  onClick={() => setToggleSidebar(false)}
+                />
+              </div>
+              <Sidebar user={user && user} closeToggle={setToggleSidebar} />
             </div>
-            <Sidebar user={user && user} closeToggle={setToggleSidebar} />
+            <button className=" bg-transparent w-[20%] h-screen" onClick={() => setToggleSidebar(false)}>
+
+            </button>
           </div>
         )}
       </div>
