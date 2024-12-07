@@ -1,15 +1,13 @@
-import art from "../assets/categories/art.png";
-import fashion from "../assets/categories/fashion.png";
-import {
-  default as celebration,
-  default as fitness,
-} from "../assets/categories/fitness.png";
-import food from "../assets/categories/food.png";
-import nature from "../assets/categories/nature.png";
-import people from "../assets/categories/people.png";
-import pets from "../assets/categories/pets.png";
-import technology from "../assets/categories/technology.png";
-import travel from "../assets/categories/travel.png";
+import art from "../assets/categories/art.webp";
+import celebration from "../assets/categories/celebration.webp";
+import fashion from "../assets/categories/fashion.webp";
+import fitness from "../assets/categories/fitness.webp";
+import food from "../assets/categories/food.webp";
+import nature from "../assets/categories/nature.webp";
+import people from "../assets/categories/people.webp";
+import pets from "../assets/categories/pets.webp";
+import technology from "../assets/categories/technology.webp";
+import travel from "../assets/categories/travel.webp";
 
 export const categories = [
   {
